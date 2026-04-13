@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoTap – Privacy Policy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #000000; --surface: #0a0a0a; --border: #1a1a1a;
+      --red: #FF1744; --blue: #2979FF; --cyan: #00E5FF; --gold: #FFD600;
+      --text: #ffffff; --sub: #aaaaaa; --muted: #444444; --radius: 4px;
+      --mono: 'Courier New', monospace;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    /* Scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px, transparent 1px, transparent 4px);
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .brand { font-family: var(--mono); font-size: 20px; font-weight: 900; letter-spacing: 4px; color: var(--text); }
+    .brand .echo { color: var(--red); text-shadow: 0 0 10px var(--red); }
+    .brand .tap  { color: var(--blue); text-shadow: 0 0 10px var(--blue); }
+    .brand-sub { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; color: var(--cyan); opacity: 0.6; margin-top: 2px; }
+
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 220px; height: 220px;
+      background: var(--red);
+      border-radius: 50%;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 220px; height: 220px;
+      background: var(--blue);
+      border-radius: 50%;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .hero-eyebrow { font-family: var(--mono); font-size: 9px; letter-spacing: 6px; color: var(--cyan); opacity: 0.7; margin-bottom: 14px; }
+    .hero h1 { font-family: var(--mono); font-size: clamp(26px, 5vw, 40px); font-weight: 900; letter-spacing: 4px; margin-bottom: 14px; }
+    .hero p { color: var(--sub); font-size: 15px; max-width: 480px; margin: 0 auto 20px; }
+    .badge {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 6px 16px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--sub);
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    section { margin-bottom: 40px; }
+
+    h2 {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--cyan);
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 16px;
+      background: var(--cyan);
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+
+    p { color: var(--sub); margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul { color: var(--sub); padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+    ul li::marker { color: var(--red); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px; height: 100%;
+      background: var(--cyan);
+      opacity: 0.3;
+    }
+    .card-title { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--text); margin-bottom: 8px; font-weight: 700; }
+
+    .highlight {
+      background: rgba(255,23,68,0.06);
+      border: 1px solid rgba(255,23,68,0.2);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: rgba(255,130,150,0.9);
+      margin-bottom: 12px;
+    }
+    .highlight strong { color: var(--red); }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .contact-icon {
+      width: 44px; height: 44px;
+      border-radius: 2px;
+      background: rgba(41,121,255,0.08);
+      border: 1px solid rgba(41,121,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .contact-card a { color: var(--blue); text-decoration: none; font-weight: 600; }
+    .contact-card a:hover { text-decoration: underline; }
+    .contact-card p { margin: 0; }
+
+    .divider {
+      width: 40px; height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 40px 0;
+    }
+
+    .tldr-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tldr-card::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 140px; height: 140px;
+      background: var(--blue);
+      border-radius: 50%;
+      opacity: 0.04;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      line-height: 2;
+    }
+    footer .brand-footer { color: var(--sub); }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 40px 16px 32px; }
+      .container { padding: 32px 16px 60px; }
+      .contact-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand"><span class="echo">ECHO</span><span class="tap">TAP</span></div>
+    <div class="brand-sub">ARCADE · REFLEX GAME</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">LEGAL · DOCUMENT</div>
+  <h1>PRIVACY POLICY</h1>
+  <p>No accounts. No tracking. No nonsense. Here's exactly what happens with your data.</p>
+  <div class="badge">LAST UPDATED · APRIL 2026</div>
+</div>
+
+<div class="container">
+
+  <section>
+    <h2>INTRODUCTION</h2>
+    <p>
+      EchoTap is a reflex and memory arcade game for Android. This policy explains what data is
+      involved when you play. We've written it in plain language — no legal tricks.
+    </p>
+    <p>
+      Developer: <strong style="color:var(--text)">Rithish S R</strong> · Contact: <a href="mailto:nexiasdev@gmail.com" style="color:var(--blue);">nexiasdev@gmail.com</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>WHAT DATA WE COLLECT</h2>
+    <div class="highlight">
+      <strong>SHORT ANSWER:</strong> We collect nothing from you personally.
+    </div>
+    <div class="card">
+      <div class="card-title">WE DO NOT COLLECT</div>
+      <ul>
+        <li>Your name, email, or any account info</li>
+        <li>Your location or GPS data</li>
+        <li>Access to camera, microphone, or contacts</li>
+        <li>Any personally identifiable information</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">STORED ONLY ON YOUR DEVICE</div>
+      <ul>
+        <li>Your best score (saved locally via AsyncStorage)</li>
+      </ul>
+      <p style="margin-top:12px;">This data never leaves your phone. Uninstall the app and it's gone.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>THIRD-PARTY SERVICES</h2>
+    <p>EchoTap shows ads via Google AdMob. Here's what that means for you:</p>
+
+    <div class="card">
+      <div class="card-title">GOOGLE ADMOB</div>
+      <p>
+        EchoTap is free and supported by ads powered by Google AdMob.
+        Google may use your device's advertising ID to show relevant ads.
+        You can opt out anytime in your phone settings under
+        <strong style="color:var(--text)">Google → Ads → Delete advertising ID</strong>.
+      </p>
+      <p style="margin-top: 8px;">
+        <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy →</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">AD TYPES USED</div>
+      <ul>
+        <li>Interstitial ads — shown between game sessions</li>
+        <li>Rewarded ads — optional, shown only if you choose to watch</li>
+      </ul>
+      <p style="margin-top:12px;">We never show ads during active gameplay.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>PERMISSIONS</h2>
+    <div class="card">
+      <div class="card-title">ANDROID PERMISSIONS USED</div>
+      <ul>
+        <li><strong style="color:var(--text)">INTERNET</strong> — required to load ads</li>
+        <li><strong style="color:var(--text)">VIBRATE</strong> — for tap feedback on buttons</li>
+      </ul>
+      <p style="margin-top:12px;">No other permissions are requested or required.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>COOKIES AND TRACKING</h2>
+    <p>
+      EchoTap itself has zero tracking, zero analytics, and zero cookies.
+      The only data-related activity is Google AdMob's ad personalisation,
+      which you can opt out of as described above.
+    </p>
+  </section>
+
+  <section>
+    <h2>CHILDREN'S PRIVACY</h2>
+    <p>
+      EchoTap is suitable for all ages. We do not knowingly collect any personal
+      data from children under 13. Since we collect no personal data at all,
+      this policy applies equally to all users regardless of age.
+    </p>
+  </section>
+
+  <section>
+    <h2>DATA SECURITY</h2>
+    <p>
+      Since we don't collect your personal data on any server, there is nothing
+      for us to leak or lose. Your best score lives only on your own device.
+      All network requests (for ads) use HTTPS encryption.
+    </p>
+  </section>
+
+  <section>
+    <h2>CHANGES TO THIS POLICY</h2>
+    <p>
+      If we update this policy, we'll update the date at the top of this page.
+      Significant changes will be communicated through an app update notice on
+      the Google Play Store.
+    </p>
+  </section>
+
+  <section>
+    <h2>CONTACT</h2>
+    <p>Questions, concerns, or feedback — reach out anytime:</p>
+    <div class="contact-card">
+      <div class="contact-icon">ET</div>
+      <div>
+        <p><strong style="color:var(--text)">EchoTap Support</strong></p>
+        <p>Email: <a href="mailto:nexiasdev@gmail.com">nexiasdev@gmail.com</a></p>
+        <p style="font-size:13px;color:var(--muted);margin-top:4px;">Usually reply within 48 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>TL;DR SUMMARY</h2>
+    <div class="tldr-card">
+      <ul>
+        <li>We collect zero personal data</li>
+        <li>Best score is saved on your device only</li>
+        <li>Ads are powered by Google AdMob</li>
+        <li>You can opt out of personalised ads in phone settings</li>
+        <li>Only INTERNET and VIBRATE permissions used</li>
+        <li>No account needed, ever</li>
+        <li>No tracking, no analytics, no cookies</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <span class="brand-footer">ECHO TAP</span> · ARCADE REFLEX GAME<br />
+  © 2026 Rithish S R · All rights reserved<br />
+  <a href="mailto:nexiasdev@gmail.com">nexiasdev@gmail.com</a> ·
+  <a href="/privacy-policy.html">LotMeme Privacy Policy</a>
+</footer>
+
+</body>
+</html>
