@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – WheelIt: Spin & Decide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080812;
+      --bg-card: #0f0f1e;
+      --bg-section: #111126;
+      --accent: #F5C842;
+      --accent-soft: rgba(245, 200, 66, 0.1);
+      --accent-glow: rgba(245, 200, 66, 0.25);
+      --text-primary: #F0EFFF;
+      --text-secondary: #9896BB;
+      --text-muted: #44426A;
+      --border: #1E1C3A;
+      --danger: #FF5063;
+      --success: #34D399;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background grid pattern ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Glow blob ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 60px 0 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 56px;
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .logo-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 20px 8px 12px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      animation: spin-slow 8s linear infinite;
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .header-meta strong {
+      color: var(--text-secondary);
+    }
+
+    /* ── Quick summary cards ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .summary-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .summary-card .icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .summary-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .summary-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Table of contents ── */
+    .toc {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+
+    .toc h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    .toc li {
+      counter-increment: toc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toc li::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 24px;
+    }
+
+    .toc a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover { color: var(--accent); }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.15s; }
+    section:nth-child(3) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.25s; }
+    section:nth-child(5) { animation-delay: 0.3s; }
+    section:nth-child(6) { animation-delay: 0.35s; }
+    section:nth-child(7) { animation-delay: 0.4s; }
+    section:nth-child(8) { animation-delay: 0.45s; }
+    section:nth-child(9) { animation-delay: 0.5s; }
+
+    .section-number {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    ul, ol {
+      margin: 0 0 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li, ol li {
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding: 8px 0 8px 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul li:last-child, ol li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ol { counter-reset: list; }
+    ol li { counter-increment: list; }
+    ol li::before {
+      content: counter(list) '.';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-glow);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .highlight p {
+      color: var(--text-primary);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .highlight strong { color: var(--accent); }
+
+    /* ── Warning box ── */
+    .warning {
+      background: rgba(255, 80, 99, 0.08);
+      border: 1px solid rgba(255, 80, 99, 0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .warning p {
+      color: var(--text-primary);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ── Data table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background: var(--bg-section);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--bg-section); }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .badge-yes { background: rgba(52, 211, 153, 0.15); color: var(--success); border: 1px solid rgba(52,211,153,0.3); }
+    .badge-no  { background: rgba(255, 80, 99, 0.12); color: var(--danger); border: 1px solid rgba(255,80,99,0.3); }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-card:hover { border-color: var(--accent); }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-glow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .contact-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .toc ol { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .contact-card { flex-direction: column; text-align: center; }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div class="logo-row">
+      <div class="logo-icon">🎡</div>
+      <div>
+        <div class="logo-name">WheelIt</div>
+        <div class="logo-sub">SPIN &amp; DECIDE</div>
+      </div>
+    </div>
+    <h1>Privacy <span>Policy</span></h1>
+    <p class="header-meta">
+      Last updated: <strong>April 22, 2025</strong> &nbsp;·&nbsp; Effective immediately
+    </p>
+  </header>
+
+  <!-- Quick summary -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="icon">🔒</div>
+      <h3>No Account Required</h3>
+      <p>WheelIt works without sign-up. No email, no profile.</p>
+    </div>
+    <div class="summary-card">
+      <div class="icon">📱</div>
+      <h3>Data Stays On Device</h3>
+      <p>Your wheels and history are stored locally on your phone only.</p>
+    </div>
+    <div class="summary-card">
+      <div class="icon">💰</div>
+      <h3>Ads Are Present</h3>
+      <p>We show ads via Google AdMob to keep the app free.</p>
+    </div>
+    <div class="summary-card">
+      <div class="icon">🚫</div>
+      <h3>No Data Selling</h3>
+      <p>We never sell your personal data to third parties.</p>
+    </div>
+  </div>
+
+  <!-- Table of contents -->
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#s1">Who We Are</a></li>
+      <li><a href="#s2">Information We Collect</a></li>
+      <li><a href="#s3">How We Use Information</a></li>
+      <li><a href="#s4">Advertising (AdMob)</a></li>
+      <li><a href="#s5">Data Storage</a></li>
+      <li><a href="#s6">Children's Privacy</a></li>
+      <li><a href="#s7">Your Rights</a></li>
+      <li><a href="#s8">Changes to Policy</a></li>
+      <li><a href="#s9">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- Section 1 -->
+  <section id="s1">
+    <div class="section-number">01 — Overview</div>
+    <h2>Who We Are</h2>
+    <p>
+      WheelIt – Spin &amp; Decide ("WheelIt", "we", "our", or "us") is a free Android application
+      designed to help users make decisions by spinning a customizable wheel. This Privacy Policy
+      explains how we handle information when you use our app.
+    </p>
+    <p>
+      By downloading or using WheelIt, you agree to the practices described in this policy. If
+      you do not agree, please uninstall the application.
+    </p>
+    <div class="highlight">
+      <p>
+        <strong>Plain English:</strong> WheelIt is a simple utility app. We don't want your data —
+        we just want you to make great decisions. 🎡
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section id="s2">
+    <div class="section-number">02 — Data Collection</div>
+    <h2>Information We Collect</h2>
+    <p>We collect minimal information necessary to operate the app. Here is a full breakdown:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Collected?</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wheel options you enter</td>
+          <td><span class="badge badge-yes">Local Only</span></td>
+          <td>Saved on your device via AsyncStorage. Never sent to us.</td>
+        </tr>
+        <tr>
+          <td>Spin history</td>
+          <td><span class="badge badge-yes">Local Only</span></td>
+          <td>Stored locally on your device. Never transmitted.</td>
+        </tr>
+        <tr>
+          <td>Spin streak data</td>
+          <td><span class="badge badge-yes">Local Only</span></td>
+          <td>Kept on device to track your daily usage streak.</td>
+        </tr>
+        <tr>
+          <td>App preferences (sound, theme)</td>
+          <td><span class="badge badge-yes">Local Only</span></td>
+          <td>Stored locally. Never shared.</td>
+        </tr>
+        <tr>
+          <td>Advertising ID (GAID)</td>
+          <td><span class="badge badge-yes">Via AdMob</span></td>
+          <td>Used by Google AdMob for personalized ads. See Section 4.</td>
+        </tr>
+        <tr>
+          <td>Device / crash info</td>
+          <td><span class="badge badge-yes">Via AdMob</span></td>
+          <td>Basic device info collected by Google for ad delivery.</td>
+        </tr>
+        <tr>
+          <td>Name, email, phone</td>
+          <td><span class="badge badge-no">Never</span></td>
+          <td>We never ask for or collect personal identifiers.</td>
+        </tr>
+        <tr>
+          <td>Location data</td>
+          <td><span class="badge badge-no">Never</span></td>
+          <td>We do not access your GPS or location.</td>
+        </tr>
+        <tr>
+          <td>Camera / microphone</td>
+          <td><span class="badge badge-no">Never</span></td>
+          <td>WheelIt does not use your camera or microphone.</td>
+        </tr>
+        <tr>
+          <td>Contacts / files</td>
+          <td><span class="badge badge-no">Never</span></td>
+          <td>We do not access your contacts, files, or photos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section 3 -->
+  <section id="s3">
+    <div class="section-number">03 — Usage</div>
+    <h2>How We Use Information</h2>
+    <p>The limited information involved in running WheelIt is used solely for:</p>
+    <ul>
+      <li>Saving your custom wheels so they persist between app sessions</li>
+      <li>Displaying your spin history for your own reference</li>
+      <li>Maintaining your daily spin streak and milestone notifications</li>
+      <li>Remembering your app preferences (theme, sound settings)</li>
+      <li>Delivering advertisements through Google AdMob to keep the app free</li>
+      <li>Sending optional daily reminder notifications (only if you grant permission)</li>
+    </ul>
+    <div class="highlight">
+      <p>
+        <strong>We do not</strong> analyze, profile, sell, rent, or share your wheel content
+        or decision history with anyone. Your decisions are yours alone.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section id="s4">
+    <div class="section-number">04 — Advertising</div>
+    <h2>Advertising (Google AdMob)</h2>
+    <p>
+      WheelIt is free to use and is supported by advertising. We use
+      <strong>Google AdMob</strong> to display ads within the app. AdMob may collect and use
+      data to serve personalized or non-personalized ads.
+    </p>
+    <p>The types of ads shown in WheelIt include:</p>
+    <ul>
+      <li><strong>Interstitial Ads</strong> — full-screen ads shown between spins (approximately every 3 spins)</li>
+      <li><strong>Rewarded Ads</strong> — optional ads users can watch to unlock premium themes</li>
+    </ul>
+    <p>
+      Google AdMob may collect the following through its own SDK:
+    </p>
+    <ul>
+      <li>Google Advertising ID (GAID) — used to serve relevant ads</li>
+      <li>IP address — used for general location (country/region level only)</li>
+      <li>Device model and OS version — for ad compatibility</li>
+      <li>App interaction data — to measure ad performance</li>
+    </ul>
+    <div class="warning">
+      <p>
+        ⚠️ <strong>AdMob data collection is governed by Google's Privacy Policy.</strong>
+        You can review it at
+        <a href="https://policies.google.com/privacy" target="_blank" style="color:#F5C842;">policies.google.com/privacy</a>.
+        You can opt out of personalized ads in your Android device settings under
+        <em>Google → Ads → Delete advertising ID</em>.
+      </p>
+    </div>
+    <p>
+      We never share your wheel content or spin decisions with AdMob or any advertiser.
+      Ad targeting is based solely on data Google collects through its own systems.
+    </p>
+  </section>
+
+  <!-- Section 5 -->
+  <section id="s5">
+    <div class="section-number">05 — Storage</div>
+    <h2>Data Storage &amp; Security</h2>
+    <p>
+      All user-generated content in WheelIt — including saved wheels, spin history, streak
+      data, and settings — is stored <strong>exclusively on your device</strong> using
+      React Native AsyncStorage. This data:
+    </p>
+    <ul>
+      <li>Never leaves your device</li>
+      <li>Is not backed up to our servers (we have none)</li>
+      <li>Is deleted when you uninstall the app</li>
+      <li>Is not accessible to us or any third party</li>
+    </ul>
+    <p>
+      We do not operate any servers, databases, or cloud infrastructure. WheelIt is a
+      fully offline-first application.
+    </p>
+    <div class="highlight">
+      <p>
+        <strong>Deleting your data:</strong> Simply uninstall WheelIt from your device.
+        All locally stored data will be permanently removed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 6 -->
+  <section id="s6">
+    <div class="section-number">06 — Children</div>
+    <h2>Children's Privacy</h2>
+    <p>
+      WheelIt is rated <strong>Everyone</strong> on the Google Play Store and is suitable for
+      all ages. However, we want to be transparent about advertising:
+    </p>
+    <ul>
+      <li>WheelIt does not knowingly collect personal information from children under 13</li>
+      <li>We do not target advertising specifically at children</li>
+      <li>Google AdMob is configured to comply with the Children's Online Privacy Protection Act (COPPA)</li>
+      <li>If you are a parent and believe your child has provided personal data, please contact us immediately</li>
+    </ul>
+    <p>
+      If you are using WheelIt in a classroom or educational setting, we recommend enabling
+      your device's "Opt out of Ads Personalization" setting for additional privacy.
+    </p>
+  </section>
+
+  <!-- Section 7 -->
+  <section id="s7">
+    <div class="section-number">07 — Your Rights</div>
+    <h2>Your Rights</h2>
+    <p>
+      Depending on your location, you may have the following rights regarding your data:
+    </p>
+    <ul>
+      <li><strong>Right to Access</strong> — Know what data is held about you (in our case, essentially none beyond what's on your device)</li>
+      <li><strong>Right to Delete</strong> — Uninstalling the app deletes all local data immediately</li>
+      <li><strong>Right to Opt Out of Personalized Ads</strong> — Via Android Settings → Google → Ads</li>
+      <li><strong>Right to Non-Discrimination</strong> — Opting out of personalized ads does not reduce app functionality</li>
+    </ul>
+    <p>
+      For users in the European Economic Area (EEA), UK, or California (CCPA), we comply with
+      applicable data protection regulations. Since we collect no personal data ourselves, most
+      requests are handled simply by uninstalling the app.
+    </p>
+    <div class="highlight">
+      <p>
+        <strong>GDPR Note:</strong> WheelIt does not have a lawful basis to process personal data
+        because we do not process personal data. The only entity processing data for advertising
+        is Google, subject to their own GDPR compliance measures.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 8 -->
+  <section id="s8">
+    <div class="section-number">08 — Updates</div>
+    <h2>Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time as the app grows. When we make
+      significant changes, we will:
+    </p>
+    <ul>
+      <li>Update the "Last updated" date at the top of this page</li>
+      <li>Notify users via an in-app message on the next launch</li>
+      <li>Post the updated policy at the same URL</li>
+    </ul>
+    <p>
+      Continued use of WheelIt after changes are posted constitutes your acceptance of the
+      updated policy. We encourage you to review this policy periodically.
+    </p>
+  </section>
+
+  <!-- Section 9 -->
+  <section id="s9">
+    <div class="section-number">09 — Contact</div>
+    <h2>Contact Us</h2>
+    <p>
+      Have questions about this Privacy Policy, data practices, or want to report a concern?
+      We're happy to help.
+    </p>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-info">
+        <h3>WheelIt Support</h3>
+        <a href="mailto:privacy@wheelit.app">nexiasdev@gmail.com</a>
+        <p style="margin: 4px 0 0; font-size: 13px; color: var(--text-muted);">
+          We typically respond within 48 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">🎡 WheelIt</div>
+    <div class="footer-tagline">SPIN & DECIDE · MADE WITH ❤️</div>
+    <div class="footer-links">
+      <a href="#s1">About</a>
+      <a href="#s4">Ads Policy</a>
+      <a href="#s7">Your Rights</a>
+      <a href="#s9">Contact</a>
+      <a href="https://policies.google.com/privacy" target="_blank">Google Privacy</a>
+    </div>
+    <div class="footer-copy">
+      © 2025 WheelIt. All rights reserved. · This privacy policy was last updated April 22, 2025.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
