@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — ChaosMart</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f0f0e8;
+      font-family: 'Courier New', Courier, monospace;
+      color: #0a0a0a;
+      padding: 0;
+    }
+
+    .topbar {
+      background: #0a0a0a;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar-text {
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .masthead {
+      background: #f0f0e8;
+      padding: 28px 24px 20px;
+      border-bottom: 4px solid #0a0a0a;
+    }
+    .masthead-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #ff3300;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .masthead-logo {
+      font-size: 52px;
+      font-weight: 900;
+      color: #0a0a0a;
+      line-height: 1;
+      font-family: Georgia, serif;
+      letter-spacing: -2px;
+    }
+    .masthead-tagline {
+      font-size: 11px;
+      color: #555;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+    .masthead-rule { height: 3px; background: #0a0a0a; margin-top: 16px; }
+    .masthead-rule-thin { height: 1px; background: #0a0a0a; margin-top: 3px; }
+
+    .hero {
+      background: #ffe70a;
+      border-bottom: 3px solid #0a0a0a;
+      padding: 20px 24px;
+    }
+    .hero-kicker {
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #ff3300;
+      margin-bottom: 6px;
+    }
+    .hero-headline {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0a0a0a;
+      font-family: Georgia, serif;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+    .hero-deck {
+      font-size: 12px;
+      color: #333;
+      margin-top: 10px;
+      line-height: 1.6;
+      font-style: italic;
+      border-top: 1px solid #0a0a0a;
+      padding-top: 8px;
+    }
+    .hero-byline {
+      font-size: 9px;
+      color: #ff3300;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
+    }
+
+    .section {
+      margin-bottom: 32px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 28px;
+    }
+    .section:last-child { border-bottom: none; }
+    .section-number {
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #ff3300;
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #0a0a0a;
+      font-family: Georgia, serif;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #0a0a0a;
+      padding-bottom: 6px;
+    }
+    .section-body {
+      font-size: 12.5px;
+      line-height: 1.8;
+      color: #1a1a1a;
+    }
+    .section-body p { margin-bottom: 10px; }
+    .section-body ul { margin: 10px 0 10px 20px; }
+    .section-body ul li { margin-bottom: 6px; line-height: 1.7; }
+    .section-body ul li::marker { color: #ff3300; content: "→ "; }
+
+    .highlight-box {
+      border: 2px solid #0a0a0a;
+      background: #fffef2;
+      padding: 14px 16px;
+      margin: 14px 0;
+      box-shadow: 4px 4px 0 #0a0a0a;
+    }
+    .highlight-box .label {
+      font-size: 8px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #ff3300;
+      margin-bottom: 6px;
+    }
+    .highlight-box p { font-size: 12px; line-height: 1.7; margin: 0; }
+
+    .stamp-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+    .stamp {
+      border: 2px solid #0a0a0a;
+      padding: 6px 12px;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #0a0a0a;
+      background: #f0f0e8;
+    }
+    .stamp.red { background: #ff3300; color: #fff; border-color: #ff3300; }
+    .stamp.yellow { background: #ffe70a; color: #0a0a0a; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 11.5px;
+    }
+    th {
+      background: #0a0a0a;
+      color: #ffe70a;
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #ccc;
+      line-height: 1.6;
+    }
+    tr:nth-child(even) td { background: #f5f5e8; }
+
+    .contact-box {
+      background: #0a0a0a;
+      color: #ffe70a;
+      padding: 20px 24px;
+      margin-top: 8px;
+      box-shadow: 6px 6px 0 #ff3300;
+    }
+    .contact-box .contact-title {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      color: #888;
+    }
+    .contact-box .contact-name {
+      font-size: 18px;
+      font-weight: 900;
+      font-family: Georgia, serif;
+      margin-bottom: 4px;
+    }
+    .contact-box a { color: #ffe70a; font-size: 13px; }
+
+    footer {
+      background: #0a0a0a;
+      color: #555;
+      padding: 20px 24px;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-top: 3px solid #ff3300;
+    }
+    footer a { color: #ffe70a; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .masthead-logo { font-size: 36px; }
+      .hero-headline { font-size: 20px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar-text">CHAOSMART.APP · OFFICIAL LEGAL DOCUMENT</span>
+    <span class="topbar-text">EFFECTIVE: JULY 2026</span>
+  </div>
+
+  <div class="masthead">
+    <div class="masthead-eyebrow">[ OFFICIAL DOCUMENT — NOT A JOKE ]</div>
+    <div class="masthead-logo">CHAOSMART</div>
+    <div class="masthead-tagline">Turn Anything Into A Chaos Card · Privacy Policy Edition</div>
+    <div class="masthead-rule"></div>
+    <div class="masthead-rule-thin"></div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-kicker">BREAKING · LEGAL · IMPORTANT</div>
+    <div class="hero-headline">We Take Your Privacy Seriously.<br>Unlike Most Things In This App.</div>
+    <div class="hero-deck">
+      This Privacy Policy explains how ChaosMart ("we", "us", "our") collects, uses, and protects your information when you use our mobile application. We use Google Sign-In only — no passwords stored by us, ever.
+    </div>
+    <div class="hero-byline">By Legal Correspondent · ChaosMart Privacy Desk · July 2026</div>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. WHO WE ARE -->
+    <div class="section">
+      <div class="section-number">ARTICLE 001</div>
+      <div class="section-title">Who We Are</div>
+      <div class="section-body">
+        <p>ChaosMart is a parody card generator app that lets users create silly, satirical cards including fake tabloids, diplomas, wanted posters, receipts, roast certificates, and more. This app is built for entertainment purposes only.</p>
+        <p>ChaosMart uses <strong>Google Sign-In (OAuth)</strong> for authentication. We never store or see your Google password. We only receive your email address and basic profile info from Google to create your account.</p>
+        <div class="highlight-box">
+          <div class="label">OFFICIAL DECLARATION</div>
+          <p>ChaosMart is operated as an independent app by Nexias Dev. For any privacy-related questions, contact us at <strong>nexiasdev@gmail.com</strong>.</p>
+        </div>
+        <div class="stamp-row">
+          <div class="stamp yellow">PARODY APP</div>
+          <div class="stamp">FOR ENTERTAINMENT ONLY</div>
+          <div class="stamp red">GOOGLE SIGN-IN ONLY</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. DATA WE COLLECT -->
+    <div class="section">
+      <div class="section-number">ARTICLE 002</div>
+      <div class="section-title">Information We Collect</div>
+      <div class="section-body">
+        <p>We collect only what we absolutely need. Here is the complete list — no hidden surprises:</p>
+
+        <table>
+          <tr>
+            <th>Data Type</th>
+            <th>What It Is</th>
+            <th>Why We Collect It</th>
+          </tr>
+          <tr>
+            <td><strong>Google Account Email</strong></td>
+            <td>Your email address from Google Sign-In</td>
+            <td>To create and identify your ChaosMart account</td>
+          </tr>
+          <tr>
+            <td><strong>Google Profile Name</strong></td>
+            <td>Your display name from your Google account</td>
+            <td>To personalise your experience in the app</td>
+          </tr>
+          <tr>
+            <td><strong>Subscription Status</strong></td>
+            <td>Whether you are a Pro or free user</td>
+            <td>To unlock Pro features and remove ads</td>
+          </tr>
+          <tr>
+            <td><strong>Username (local only)</strong></td>
+            <td>The name you set inside the app</td>
+            <td>Stored only on your device — never sent to our servers</td>
+          </tr>
+          <tr>
+            <td><strong>Photos (optional, local only)</strong></td>
+            <td>Images you upload for cards</td>
+            <td>Used within the app only — never uploaded to our servers</td>
+          </tr>
+        </table>
+
+        <div class="highlight-box">
+          <div class="label">WHAT WE DO NOT COLLECT</div>
+          <p>We do <strong>not</strong> collect your Google password, phone number, location, contacts, browsing history, device files, or any other personal information beyond what is listed above. Card content you generate is <strong>never</strong> stored on our servers.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. HOW WE USE IT -->
+    <div class="section">
+      <div class="section-number">ARTICLE 003</div>
+      <div class="section-title">How We Use Your Information</div>
+      <div class="section-body">
+        <p>Your data is used strictly for the following purposes:</p>
+        <ul>
+          <li>To create and manage your ChaosMart account using Google Sign-In</li>
+          <li>To verify your subscription status and unlock Pro features</li>
+          <li>To process in-app purchases via RevenueCat (our subscription provider)</li>
+          <li>To serve advertisements to free users via Google AdMob</li>
+          <li>To generate AI-powered card content via Google Gemini API — your input text is sent to Gemini to generate results but is not stored by us</li>
+        </ul>
+        <div class="highlight-box">
+          <div class="label">OUR PROMISE</div>
+          <p>We do not sell your data. We do not use your data for marketing. We do not share your data with anyone except the essential third-party services listed in Article 004 that are required to operate the app.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. THIRD PARTIES -->
+    <div class="section">
+      <div class="section-number">ARTICLE 004</div>
+      <div class="section-title">Third-Party Services</div>
+      <div class="section-body">
+        <p>ChaosMart uses the following third-party services. Each has its own privacy policy which we encourage you to read:</p>
+
+        <table>
+          <tr>
+            <th>Service</th>
+            <th>Purpose</th>
+            <th>Privacy Policy</th>
+          </tr>
+          <tr>
+            <td><strong>Google Sign-In (OAuth)</strong></td>
+            <td>Authentication — we use your Google account to log you in securely</td>
+            <td>policies.google.com/privacy</td>
+          </tr>
+          <tr>
+            <td><strong>Supabase</strong></td>
+            <td>User database — stores your email and subscription status securely</td>
+            <td>supabase.com/privacy</td>
+          </tr>
+          <tr>
+            <td><strong>RevenueCat</strong></td>
+            <td>Subscription management and in-app purchase processing</td>
+            <td>revenuecat.com/privacy</td>
+          </tr>
+          <tr>
+            <td><strong>Google AdMob</strong></td>
+            <td>Advertisements shown to free users only</td>
+            <td>policies.google.com/privacy</td>
+          </tr>
+          <tr>
+            <td><strong>Google Gemini API</strong></td>
+            <td>AI-powered card content generation for Pro templates</td>
+            <td>ai.google.dev/terms</td>
+          </tr>
+        </table>
+
+        <div class="highlight-box">
+          <div class="label">ABOUT ADS</div>
+          <p>Free users may see ads served by Google AdMob. AdMob may use device identifiers and usage data to show relevant ads. You can opt out of personalised ads in your device settings under <strong>Google → Ads → Opt out of Ads Personalisation</strong>. Pro users see zero ads.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. DATA STORAGE -->
+    <div class="section">
+      <div class="section-number">ARTICLE 005</div>
+      <div class="section-title">Data Storage & Security</div>
+      <div class="section-body">
+        <p>Your account data (email + subscription status) is stored securely on Supabase servers with row-level security enabled. This means only you can access your own data.</p>
+        <ul>
+          <li>We never store your Google password — authentication is handled entirely by Google</li>
+          <li>All connections to our servers use HTTPS encryption</li>
+          <li>Your username stays on your device only — it is never sent to our servers</li>
+          <li>Photos you upload for cards are processed locally on your device — they are never sent to or stored on our servers</li>
+          <li>Card content, generated text, and creative output never leaves your device</li>
+        </ul>
+        <div class="highlight-box">
+          <div class="label">WHAT WE NEVER SEE</div>
+          <p>Your Google password, card content, generated headlines, roast text, wanted poster descriptions, photos, and any other creative output. We never have access to any of it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. YOUR RIGHTS -->
+    <div class="section">
+      <div class="section-number">ARTICLE 006</div>
+      <div class="section-title">Your Rights</div>
+      <div class="section-body">
+        <p>You have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Access:</strong> You can request a copy of the data we hold about you at any time</li>
+          <li><strong>Deletion:</strong> You can request deletion of your account and all associated data — we will process this within 30 days</li>
+          <li><strong>Correction:</strong> You can update your account information at any time</li>
+          <li><strong>Portability:</strong> You can request your data in a portable format</li>
+          <li><strong>Opt-out of ads:</strong> Free users can opt out of personalised ads through device settings</li>
+          <li><strong>Revoke Google access:</strong> You can revoke ChaosMart's access to your Google account at any time via myaccount.google.com/permissions</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <strong>nexiasdev@gmail.com</strong>. We will respond within 30 days.</p>
+      </div>
+    </div>
+
+    <!-- 7. CHILDREN -->
+    <div class="section">
+      <div class="section-number">ARTICLE 007</div>
+      <div class="section-title">Children's Privacy</div>
+      <div class="section-body">
+        <p>ChaosMart is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. Google Sign-In also requires users to meet Google's minimum age requirements.</p>
+        <p>If you are a parent or guardian and believe your child has used ChaosMart, please contact us immediately at <strong>nexiasdev@gmail.com</strong> and we will delete any associated account data promptly.</p>
+      </div>
+    </div>
+
+    <!-- 8. CHANGES -->
+    <div class="section">
+      <div class="section-number">ARTICLE 008</div>
+      <div class="section-title">Changes to This Policy</div>
+      <div class="section-body">
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Effective Date" at the top of this page and notify users through the app where required.</p>
+        <p>Continued use of ChaosMart after any changes constitutes your acceptance of the updated Privacy Policy.</p>
+        <div class="stamp-row">
+          <div class="stamp">LAST UPDATED: JULY 2026</div>
+          <div class="stamp yellow">VERSION 1.0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. CONTACT -->
+    <div class="section">
+      <div class="section-number">ARTICLE 009</div>
+      <div class="section-title">Contact Us</div>
+      <div class="section-body">
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out to us:</p>
+        <div class="contact-box">
+          <div class="contact-title">PRIVACY DESK · CHAOSMART</div>
+          <div class="contact-name">Nexias Dev</div>
+          <a href="mailto:nexiasdev@gmail.com">nexiasdev@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>© 2026 CHAOSMART · ALL RIGHTS RESERVED</span>
+    <span>THIS IS A REAL PRIVACY POLICY · THE APP IS THE JOKE</span>
+    <span><a href="mailto:nexiasdev@gmail.com">nexiasdev@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>
